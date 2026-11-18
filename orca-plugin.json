@@ -1,0 +1,35 @@
+{
+  "manifestVersion": 2,
+  "id": "portsync",
+  "name": "PortSync",
+  "version": "0.0.1",
+  "description": "按 SSH 工作区发现远端 TCP 服务，并自动映射到本机。",
+  "engines": {
+    "orca": ">=1.4.261"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.mjs",
+  "contributes": {
+    "panels": [
+      {
+        "id": "ports",
+        "title": "PortSync",
+        "icon": "plug",
+        "entry": "src/panel.html"
+      }
+    ],
+    "statusBarItems": [
+      {
+        "id": "ports",
+        "icon": "plug",
+        "text": "PortSync",
+        "tooltip": "在右侧 PortSync 面板管理 SSH 工作区的端口转发"
+      }
+    ]
+  },
+  "capabilities": [
+    { "kind": "workspace:read" },
+    { "kind": "storage:own" }
+  ]
+}
